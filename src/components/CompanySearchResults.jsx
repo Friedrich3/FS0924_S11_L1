@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Job from "./Job";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -33,8 +33,9 @@ const CompanySearchResults = () => {
       <Row>
         <Col className="my-3">
           <h1 className="display-4">Job posting for: {params.company}</h1>
+          <Link to='/favourites' className="btn btn-outline-info">My Favourites</Link>
           {jobs.map(jobData => (
-            <Job key={jobData._id} data={jobData} />
+            <Job key={jobData._id} data={jobData} favourite={false}/>
           ))}
         </Col>
       </Row>
