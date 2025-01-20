@@ -8,7 +8,6 @@ const FavouriteList = function () {
     const arrReduxState = useSelector((store) =>{return store.companies.favourites})
 
 
-
   return (
   <Container>
     <Row>

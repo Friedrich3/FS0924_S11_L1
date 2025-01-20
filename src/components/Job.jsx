@@ -8,9 +8,11 @@ const Job = ({ data , favourite}) => {
 
   const [isFavourite, setIsFavourite] = useState(favourite)
 
-  
   const dispatch = useDispatch()
   
+
+
+
 
   const addToFavourite = () => {
     if(isFavourite === false){
@@ -18,14 +20,15 @@ const Job = ({ data , favourite}) => {
         type: 'ADD_FAVOURITES',
         payload: data
       })
+      setIsFavourite(true)
 
     }else{
       dispatch({
         type: 'REMOVE_FAVOURITES',
         payload: data._id
       })
+      setIsFavourite(false)
     }
-    setIsFavourite(!isFavourite)
   }
 
 
