@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Spinner, Alert } from "react-bootstrap";
 import Job from "./Job";
 import { Link } from "react-router-dom";
 import { clearSearchAction, dataFetchAction } from "../redux/action";
@@ -10,6 +10,8 @@ const MainSearch = () => {
   const jobs = useSelector((store) => {
     return store.fetchData.fetchedData.data;
   });
+  const isLoading = useSelector((store)=>{ return store.fetchData.isLoading})
+  const isError = useSelector((store)=>{ return store.fetchData.isError})
 
   const dispatch = useDispatch();
 
@@ -66,6 +68,31 @@ const MainSearch = () => {
           </Form>
         </Col>
         <Col xs={10} className="mx-auto mb-5">
+
+        {
+          isLoading && 
+          <Row >
+            <Col className="text-center mt-5 pt-5">
+              <Spinner variant="info" ></Spinner><span>Loading...</span>
+            </Col>
+          </Row>
+        }
+        {
+          isError &&  
+          <Row >
+          <Col className="text-center">
+            <Alert variant="danger" dismissible={true}>
+              <Alert.Heading>Error 404 - not Found</Alert.Heading>
+              <p>La ricerca non ha riportato risultati </p>
+              <p>Ricarica la pagina oppure riprova a digitare correttamente </p>
+            </Alert>
+          </Col>
+        </Row>
+        }
+
+
+
+
           {jobs &&
             jobs.map((jobData) => (
               <Job key={jobData._id} data={jobData} favourite={false} />

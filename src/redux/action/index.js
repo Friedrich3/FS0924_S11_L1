@@ -101,6 +101,7 @@ export const dataFetchAction = (query) => {
                 payload: error
             })
             dispatch({type:ERROR_TRUE,payload:true})
+            dispatch({type:LOADING_FALSE,payload:false})
         }
     }
 }
