@@ -1,10 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import companiesReducer from "../reducers/favourites"
 import dataFetchReducer from "../reducers/datafetch"
+import companyReducer from "../reducers/companyfetch"
 
 const mainReducer = combineReducers({
     fetchData : dataFetchReducer,
-    companies : companiesReducer
+    companies : companiesReducer,
+    companySearch : companyReducer
 
 })
 

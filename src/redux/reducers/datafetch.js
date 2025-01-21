@@ -1,4 +1,4 @@
-import { GET_DATA_SUCCESS, GET_DATA_ERROR } from "../action"
+import { GET_DATA_SUCCESS, GET_DATA_ERROR, CLEAR_SEARCH } from "../action"
 
 
 const initialState = {
@@ -22,6 +22,12 @@ const dataFetchReducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: action.payload
+            }
+
+        case CLEAR_SEARCH:
+            return {
+                ...state,
+                fetchedData: []
             }
 
 

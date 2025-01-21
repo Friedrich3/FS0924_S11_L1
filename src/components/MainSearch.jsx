@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Job from "./Job";
 import { Link } from "react-router-dom";
-import { dataFetchAction } from "../redux/action";
+import { clearSearchAction, dataFetchAction } from "../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 
 const MainSearch = () => {
@@ -12,6 +12,10 @@ const MainSearch = () => {
   });
 
   const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(clearSearchAction([]))
+  },[])
 
   
   const handleChange = (e) => {
