@@ -13,15 +13,14 @@ const MainSearch = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch(clearSearchAction([]))
-  },[])
+  useEffect(() => {
+    dispatch(clearSearchAction([]));
+  }, []);
 
-  
   const handleChange = (e) => {
     setQuery(e.target.value);
   };
-  
+
   // const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
   // const handleSubmit = async e => {
   //   e.preventDefault();
@@ -47,9 +46,14 @@ const MainSearch = () => {
       <Row>
         <Col xs={10} className="mx-auto my-3">
           <h1 className="display-1">Remote Jobs Search</h1>
-          <Link to="/favourites" className="btn btn-outline-info">
-            My Favourites
-          </Link>
+          <div className="d-flex">
+            <Link to="/favourites" className="btn btn-outline-info">
+              My Favourites
+            </Link>
+            <Link to="/history" className="btn btn-outline-secondary ms-auto">
+              History
+            </Link>
+          </div>
         </Col>
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>

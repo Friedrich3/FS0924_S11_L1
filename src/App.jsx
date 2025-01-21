@@ -4,6 +4,7 @@ import MainSearch from './components/MainSearch'
 import CompanySearchResults from './components/CompanySearchResults'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import FavouriteList from './components/FavouriteList'
+import HistoryPage from './components/Historypage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<MainSearch />} />
         <Route path="/:company" element={<CompanySearchResults />} />
         <Route path='/favourites' element={<FavouriteList />} />
+        <Route path='/history' element={<HistoryPage />} />
       </Routes>
     </BrowserRouter>
   )
