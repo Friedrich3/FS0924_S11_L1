@@ -1,9 +1,11 @@
-import { GET_DATA_SUCCESS, GET_DATA_ERROR, CLEAR_SEARCH } from "../action"
+import { GET_DATA_SUCCESS, GET_DATA_ERROR, CLEAR_SEARCH, LOADING_TRUE, LOADING_FALSE, ERROR_TRUE, ERROR_FALSE, PROVA } from "../action"
 
 
 const initialState = {
     fetchedData: [],
     error: '',
+    isLoading: false,
+    isError: false,
 }
 
 
@@ -30,6 +32,34 @@ const dataFetchReducer = (state = initialState, action) => {
                 fetchedData: []
             }
 
+        case LOADING_TRUE:
+            return {
+                ...state,
+                isLoading: action.payload
+            }
+
+
+        case LOADING_FALSE:
+            return {
+                ...state,
+                isLoading : action.payload
+            }
+
+        case ERROR_TRUE:
+            return {
+                ...state,
+                isError: action.payload
+            }
+
+        case ERROR_FALSE:
+            return {
+                ...state,
+                isError: action.payload
+            }
+
+
+        case PROVA:
+            return state
 
 
 

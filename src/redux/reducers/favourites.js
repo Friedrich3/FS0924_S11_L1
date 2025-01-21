@@ -1,4 +1,4 @@
-import { ADD_FAVOURITES , REMOVE_FAVOURITES } from "../action"
+import { ADD_FAVOURITES , PROVA, REMOVE_FAVOURITES } from "../action"
 
 
 
@@ -28,6 +28,9 @@ const companiesReducer = (state = initialState, action) => {
                         }
                     })
             }
+
+        case PROVA:
+            return state
 
         default:
             return state

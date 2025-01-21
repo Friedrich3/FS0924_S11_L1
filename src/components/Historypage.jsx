@@ -1,11 +1,17 @@
+import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { provaAction } from "../redux/action";
 
 const HistoryPage = function () {
+    const dispatch = useDispatch()
 
     const companyList = useSelector((store)=> {return store.companySearch.companyCrono})
 
+    useEffect(()=>{
+        dispatch(provaAction())
+    },[])
 
   return (
     <Container>
