@@ -1,3 +1,7 @@
+import { ADD_FAVOURITES , REMOVE_FAVOURITES } from "../action"
+
+
+
 const initialState = {
     companies: {
         favourites: []
@@ -9,7 +13,7 @@ const mainReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case 'ADD_FAVOURITES':
+        case ADD_FAVOURITES:
             return {
                 ...state,
                 companies: {
@@ -18,7 +22,7 @@ const mainReducer = (state = initialState, action) => {
                 }
             }
 
-        case 'REMOVE_FAVOURITES':
+        case REMOVE_FAVOURITES:
             return {
                 ...state,
                 companies: {

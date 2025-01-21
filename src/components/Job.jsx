@@ -3,6 +3,7 @@ import { Row, Col,} from "react-bootstrap";
 import { HandThumbsUp, HandThumbsUpFill} from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToFavouritesAction, removeToFavouritesAction,} from "../redux/action";
 
 const Job = ({ data , favourite}) => {
 
@@ -14,19 +15,13 @@ const Job = ({ data , favourite}) => {
 
 
 
-  const addToFavourite = () => {
+  const toFavourite = () => {
     if(isFavourite === false){
-      dispatch({
-        type: 'ADD_FAVOURITES',
-        payload: data
-      })
+      dispatch(addToFavouritesAction(data))
       setIsFavourite(true)
 
     }else{
-      dispatch({
-        type: 'REMOVE_FAVOURITES',
-        payload: data._id
-      })
+      dispatch(removeToFavouritesAction(data))
       setIsFavourite(false)
     }
   }
@@ -49,7 +44,7 @@ const Job = ({ data , favourite}) => {
         <div
           className="d-flex justify-content-center"
           onClick={() => {
-            addToFavourite();
+            toFavourite();
           }}
         >
           {
